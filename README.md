@@ -11,10 +11,15 @@ In brief, the MFreak block `block_mycourses` gives the user an overview of their
 ![Moodle35](https://img.shields.io/badge/moodle-3.5-brightgreen.svg)
 
 ## Screens
-- @TODO /pix
+![Screen](pix/screen.png)
 
 ## List of features
-- @todo
+- Overview of your active courses
+- GDPR
+- Mustache templates
+- Default course image
+- Display course grade
+- Display completion percentage
 
 ## Installation
 1.  Copy this plugin to the `blocks\mycourses` folder on the server
