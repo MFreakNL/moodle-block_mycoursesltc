@@ -7,16 +7,16 @@
 
 .block_mycourses .course-item .left {
     margin: 5px;
-    width: 100px;
+    width: 125px;
     float: left;
 }
 
 .block_mycourses .course-item .left img {
-    width: 100px;
+    width: 125px;
 }
 
 .block_mycourses .course-item .right {
-    width: calc(100% - 110px);
+    width: calc(100% - 135px);
     float: left;
 }
 
@@ -24,6 +24,7 @@
     font-size: 16px;
     font-weight: bold;
     margin: 5px 0 0 0;
+    word-break: keep-all;
 }
 
 .block_mycourses .course-item .progressbar {

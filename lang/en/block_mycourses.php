@@ -41,8 +41,8 @@ $string['settings:defaultimagedesc'] = 'The default course images';
 $string['privacy:metadata'] = 'The atto_clear plugin does not store any personal data.';
 
 // Text.
-$string['text:startdate'] = 'Startdate';
-$string['text:grade'] = 'Grade';
+$string['text:startdate'] = 'Startdate:';
+$string['text:grade'] = 'Grade:';
 $string['text:course_not_started'] = 'Not started';
 $string['text:course_finished'] = 'Completed (100%) on {$a->date}';
 // Button.
