@@ -32,7 +32,7 @@ class block_mycourses extends block_base {
      * @return void
      * @throws coding_exception
      */
-    public function init() : void {
+    public function init() {
         $this->title = get_string('pluginname', 'block_mycourses');
     }
 
@@ -75,7 +75,7 @@ class block_mycourses extends block_base {
      * @return void
      * @throws coding_exception
      */
-    function specialization() : void {
+    function specialization()  {
 
         if (empty($this->config->title)) {
             $this->title = get_string('pluginname', 'block_mycourses');

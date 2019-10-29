@@ -27,10 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
 
-    $settings->add (new admin_setting_configstoredfile('block_mycourses',
-        get_string('settings:defaultimage','block_mycourses'),
+    $settings->add(new admin_setting_configstoredfile('block_mycourses/defaultcourseimage',
+        get_string('settings:defaultimage', 'block_mycourses'),
         get_string('settings:defaultimagedesc', 'block_mycourses'),
         'defaultimage', 1,
-        array('maxfiles' => 1, 'accepted_types' => array('.jpeg','.jpg','.png','.svg'))));
-
+        ['maxfiles' => 1, 'accepted_types' => ['.jpeg', '.jpg', '.png', '.svg']]));
 }

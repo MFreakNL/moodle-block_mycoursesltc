@@ -19,3 +19,30 @@
     @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
     @author    Luuk Verhoeven
 }}
+<div class="course-item col-lg-4 col-md-12 col-sm-12 col-xs-12 mb-3">
+    <div class="inner">
+        <section>
+            <div class="left">
+                <img src="{{image}}" alt="{{fullname}}">
+            </div>
+            <div class="right">
+                <h4>{{fullname}}</h4>
+                <div class="startdate">
+                    {{# str}} text:startdate, block_mycourses {{/ str}} {{date_started}}
+                </div>
+                <div class="grade">
+                    {{# str}} text:grade, block_mycourses {{/ str}} {{grade}}
+                </div>
+            </div>
+            <div class="progressbar {{#course_is_started}}started{{/course_is_started}}">
+                <div class="progress-percentage" style="width: {{completion_percentage}}%"></div>
+                <span class="status-text">{{progress_text}}</span>
+            </div>
+        </section>
+        <footer>
+            <a href="{{courseurl}}">{{# str}} btn:start_course, block_mycourses {{/ str}}
+                <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </footer>
+    </div>
+</div>

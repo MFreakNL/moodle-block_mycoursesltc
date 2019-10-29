@@ -46,7 +46,7 @@ class block_mycourses_renderer extends plugin_renderer_base {
     public function get_courses_overview() : string {
         $context = new output_courses();
 
-        return parent::render_from_template('block_mycourses\overview_courses',
+        return parent::render_from_template('block_mycourses/courses_overview',
             $context->export_for_template($this));
     }
 

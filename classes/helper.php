@@ -24,7 +24,12 @@
  * @author    Luuk Verhoeven
  **/
 
-namespace block_user_mycourses;
+namespace block_mycourses;
+
+use ArrayIterator;
+use context_system;
+use moodle_url;
+
 defined('MOODLE_INTERNAL') || die;
 
 /**
@@ -37,5 +42,29 @@ defined('MOODLE_INTERNAL') || die;
  * @author    Luuk Verhoeven
  */
 final class helper {
+
+    /**
+     * @return string
+     * @throws \dml_exception
+     */
+    public static function get_default_image() : string {
+        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycourses', 'defaultimage',
+            1, '/', '');
+    }
+
+    /**
+     * @return ArrayIterator
+     * @throws \coding_exception
+     */
+    public static function get_enrolled_courses() : ArrayIterator {
+
+        $courses = enrol_get_my_courses('*' , 'startdate DESC');
+        $records = [];
+        foreach ($courses as $course) {
+            $records[$course->id] = new course($course);
+        }
+
+        return new ArrayIterator($records);
+    }
 
 }

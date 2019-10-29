@@ -27,6 +27,7 @@
 namespace block_mycourses\output;
 defined('MOODLE_INTERNAL') || die;
 
+use block_mycourses\helper;
 use renderable;
 use renderer_base;
 use stdClass;
@@ -52,12 +53,11 @@ class output_courses implements renderable, templatable {
      * @param renderer_base $output Used to do a final render of any components that need to be rendered for export.
      *
      * @return stdClass
+     * @throws \coding_exception
      */
     public function export_for_template(renderer_base $output) {
         $output = new stdClass();
-
-        // TODO: Implement export_for_template() method.
-
+        $output->courses = helper::get_enrolled_courses();
         return $output;
     }
 }
