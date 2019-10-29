@@ -25,10 +25,13 @@
  **/
 
 namespace block_mycourses;
+require_once($CFG->libdir . '/gradelib.php');
 
 use completion_completion;
 use completion_info;
 use core_completion\progress;
+use grade_grade;
+use grade_item;
 use lang_string;
 
 defined('MOODLE_INTERNAL') || die;
@@ -76,7 +79,25 @@ class course {
      * @return string
      */
     public function grade() {
-        return '0,0';
+        global $USER;
+
+        $gradeitem = grade_item::fetch_all([
+            'userid' => $USER->id,
+            'courseid' => $this->get_id(),
+            'itemtype' => 'course',
+        ]);
+
+        if (empty($gradeitem)) {
+            return '0,00';
+        }
+
+        $gradeitem = reset($gradeitem);
+        $grade_grades = grade_grade::fetch_users_grades($gradeitem, [$USER->id], true);
+
+        $grade_grade = reset($grade_grades);
+
+        return grade_format_gradevalue($grade_grade->finalgrade ?? 0, $gradeitem, true,
+            GRADE_DISPLAY_TYPE_REAL, 2);
     }
 
     /**

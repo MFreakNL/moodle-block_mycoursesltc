@@ -2,6 +2,7 @@
     border: 1px solid #642995;
     border-radius: 3px;
     overflow: hidden;
+    min-height: 168px;
 }
 
 .block_mycourses .course-item .left {
