@@ -88,7 +88,7 @@ class course {
         ]);
 
         if (empty($gradeitem)) {
-            return '0,00';
+            return '';
         }
 
         $gradeitem = reset($gradeitem);
@@ -96,7 +96,11 @@ class course {
 
         $grade_grade = reset($grade_grades);
 
-        return grade_format_gradevalue($grade_grade->finalgrade ?? 0, $gradeitem, true,
+        if (empty($grade_grade->finalgrade)) {
+            return '';
+        }
+
+        return grade_format_gradevalue($grade_grade->finalgrade, $gradeitem, true,
             GRADE_DISPLAY_TYPE_REAL, 2);
     }
 
