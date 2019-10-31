@@ -55,16 +55,27 @@ final class helper {
     /**
      * @return ArrayIterator
      * @throws \coding_exception
+     * @throws \dml_exception
      */
     public static function get_enrolled_courses() : ArrayIterator {
 
-        $courses = enrol_get_my_courses('*' , 'startdate DESC');
+        $courses = enrol_get_my_courses('*', 'startdate DESC', self::get_course_limit());
         $records = [];
         foreach ($courses as $course) {
             $records[$course->id] = new course($course);
         }
 
         return new ArrayIterator($records);
+    }
+
+    /**
+     * @return int
+     * @throws \dml_exception
+     */
+    private static function get_course_limit() : int {
+        // @TODO Get user personal limit.
+
+        return get_config('block_mycourses', 'courselimit');
     }
 
 }

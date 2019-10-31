@@ -35,7 +35,8 @@ $string['mycourses:myaddinstance'] = 'Add a new Block for user mycourses to my m
 // Settings.
 $string['settings:defaultimage'] = 'Default image';
 $string['settings:defaultimagedesc'] = 'The default course images';
-
+$string['settings:courselimit'] = 'Course limit';
+$string['settings:courselimit_desc'] = 'The maximum number of enrolled courses shown';
 
 // Privacy.
 $string['privacy:metadata'] = 'The atto_clear plugin does not store any personal data.';

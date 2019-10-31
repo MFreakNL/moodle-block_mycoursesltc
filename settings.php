@@ -30,6 +30,16 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configstoredfile('block_mycourses/defaultcourseimage',
         get_string('settings:defaultimage', 'block_mycourses'),
         get_string('settings:defaultimagedesc', 'block_mycourses'),
-        'defaultimage', 1,
-        ['maxfiles' => 1, 'accepted_types' => ['.jpeg', '.jpg', '.png', '.svg']]));
+        'defaultimage', 1, ['maxfiles' => 1, 'accepted_types' => ['.jpeg', '.jpg', '.png', '.svg']]));
+
+    $choices = [
+        6 => 6,
+        12 => 12,
+        24 => 24,
+    ];
+    $settings->add(new admin_setting_configselect('block_mycourses/courselimit',
+        get_string('settings:courselimit', 'block_mycourses'),
+        get_string('settings:courselimit_desc', 'block_mycourses'),
+        6, $choices));
+
 }
