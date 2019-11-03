@@ -27,6 +27,7 @@
 namespace block_mycourses\output;
 defined('MOODLE_INTERNAL') || die;
 
+use ArrayIterator;
 use block_mycourses\helper;
 use renderable;
 use renderer_base;
@@ -54,10 +55,38 @@ class output_courses implements renderable, templatable {
      *
      * @return stdClass
      * @throws \coding_exception
+     * @throws \dml_exception
      */
     public function export_for_template(renderer_base $output) {
         $output = new stdClass();
         $output->courses = helper::get_enrolled_courses();
+        $output->itemsperpage = $this->get_items_per_page();
+        $output->courselimit =  helper::get_course_limit();
         return $output;
+    }
+
+    /**
+     * @return ArrayIterator
+     * @throws \dml_exception
+     * @throws \coding_exception
+     */
+    private function get_items_per_page() : ArrayIterator {
+        $limit = helper::get_course_limit();
+
+        $list = [
+            6 => ['value' => 6],
+            12 => ['value' => 12],
+            24 => ['value' => 24],
+        ];
+
+        $list = array_map(function ($item) use ($limit) {
+            if ($limit === $item['value']) {
+                $item += ['active' => true];
+            }
+
+            return $item;
+        }, $list);
+
+        return new ArrayIterator($list);
     }
 }

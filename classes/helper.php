@@ -44,6 +44,8 @@ defined('MOODLE_INTERNAL') || die;
 final class helper {
 
     /**
+     * Get default course image
+     *
      * @return string
      * @throws \dml_exception
      */
@@ -53,13 +55,14 @@ final class helper {
     }
 
     /**
+     * Get user their enrolled courses.
+     *
      * @return ArrayIterator
      * @throws \coding_exception
-     * @throws \dml_exception
      */
     public static function get_enrolled_courses() : ArrayIterator {
 
-        $courses = enrol_get_my_courses('*', 'startdate DESC', self::get_course_limit());
+        $courses = enrol_get_my_courses('*', 'startdate DESC');
         $records = [];
         foreach ($courses as $course) {
             $records[$course->id] = new course($course);
@@ -69,13 +72,24 @@ final class helper {
     }
 
     /**
+     * Get course limit
+     *
      * @return int
+     *
      * @throws \dml_exception
+     * @throws \coding_exception
      */
-    private static function get_course_limit() : int {
-        // @TODO Get user personal limit.
+    public static function get_course_limit() : int {
+        $default = get_config('block_mycourses', 'courselimit');
+        $userpreference = get_user_preferences('block_mycourses_limit' , false);
 
-        return get_config('block_mycourses', 'courselimit');
+        if($userpreference){
+            return (int) $userpreference;
+        }
+
+        set_user_preference('block_mycourses_limit', $default);
+
+        return (int) $default;
     }
 
 }

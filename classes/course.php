@@ -67,6 +67,8 @@ class course {
     }
 
     /**
+     * The date the user is enrolled
+     *
      * @return string
      */
     public function date_started() : string {
@@ -115,6 +117,8 @@ class course {
     }
 
     /**
+     * Check if course is started
+     *
      * @return bool
      * @throws \coding_exception
      */
@@ -125,6 +129,8 @@ class course {
     }
 
     /**
+     * Display progressbar text
+     *
      * @return string
      * @throws \coding_exception
      */

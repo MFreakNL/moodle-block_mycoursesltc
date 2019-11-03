@@ -93,7 +93,7 @@ class block_mycourses extends block_base {
      * @throws coding_exception
      */
     public function get_content() {
-        global $PAGE;
+        global $PAGE , $USER;
 
         if ($this->content !== null) {
             return $this->content;
@@ -105,6 +105,10 @@ class block_mycourses extends block_base {
 
             return $this->content;
         }
+
+        // Fix ajax call.
+        $USER->ajax_updatable_user_prefs['block_mycourses_limit'] = true;
+
 
         $renderer = $PAGE->get_renderer('block_mycourses');
 
