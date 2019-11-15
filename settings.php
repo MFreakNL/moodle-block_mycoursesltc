@@ -33,8 +33,8 @@ if ($ADMIN->fulltree) {
         'defaultimage', 1, ['maxfiles' => 1, 'accepted_types' => ['.jpeg', '.jpg', '.png', '.svg']]));
 
     $choices = [
-        6 => 6,
-        12 => 12,
+        8 => 8,
+        16 => 16,
         24 => 24,
     ];
     $settings->add(new admin_setting_configselect('block_mycourses/courselimit',

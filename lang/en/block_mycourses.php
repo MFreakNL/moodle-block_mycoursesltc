@@ -46,5 +46,8 @@ $string['text:startdate'] = 'Startdate:';
 $string['text:grade'] = 'Grade:';
 $string['text:course_not_started'] = 'Not started';
 $string['text:course_finished'] = 'Completed (100%) on {$a->date}';
+$string['text:course_finished_no_date'] = 'Completed (100%)';
+
 // Button.
 $string['btn:start_course'] = 'Enter course';
+$string['btn:showmore'] = 'Show all';

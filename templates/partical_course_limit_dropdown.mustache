@@ -19,46 +19,54 @@
     @copyright 03/11/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
     @author    Luuk Verhoeven
 }}
-<div id="limit-dropdown-container" data-region="paging-control-container" class="d-flex">
-    <div
-            id="paging-control-limit-container"
-            data-region="paging-control-limit-container"
-            class="d-inline-flex align-items-center"
-    >
-        <span class="mr-1">{{#str}} show {{/str}}</span>
-        <div class="btn-group">
-            <button
-                    type="button"
-                    class="btn btn-outline-secondary dropdown-toggle"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    data-action="limit-toggle"
-            >
-                {{#itemsperpage}}
-                    {{#active}}
-                        {{value}}
-                    {{/active}}
-                {{/itemsperpage}}
-            </button>
-            <div
-                    role="menu"
-                    class="dropdown-menu"
-                    data-show-active-item
-            >
-                {{#itemsperpage}}
-                    <a
-                            class="dropdown-item {{#active}}active{{/active}}"
-                            href="#"
-                            data-limit={{value}}
-                        {{#active}}aria-current="true"{{/active}}
-                    >
-                        {{#value}}{{.}}{{/value}}
-                    </a>
-                {{/itemsperpage}}
+<div class="d-flex justify-content-between mb-3">
+    <div id="limit-dropdown-container" data-region="paging-control-container" class="p-2">
+        <div
+                id="paging-control-limit-container"
+                data-region="paging-control-limit-container"
+                class="d-inline-flex align-items-center"
+        >
+            <span class="mr-1">{{#str}} show {{/str}}</span>
+            <div class="btn-group">
+                <button
+                        type="button"
+                        class="btn btn-outline-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        data-action="limit-toggle"
+                >
+                    {{#itemsperpage}}
+                        {{#active}}
+                            {{value}}
+                        {{/active}}
+                    {{/itemsperpage}}
+                </button>
+                <div
+                        role="menu"
+                        class="dropdown-menu"
+                        data-show-active-item
+                >
+                    {{#itemsperpage}}
+                        <a
+                                class="dropdown-item {{#active}}active{{/active}}"
+                                href="#"
+                                data-limit={{value}}
+                            {{#active}}aria-current="true"{{/active}}
+                        >
+                            {{#value}}{{.}}{{/value}}
+                        </a>
+                    {{/itemsperpage}}
+                </div>
             </div>
         </div>
     </div>
+    <div class="p-2 mb-3 mt-1">
+        <a href="#" id="block_mycourses_showmore" class="btn btn-primary">
+            {{# str}} btn:showmore, block_mycourses {{/ str}}
+        </a>
+    </div>
+    <div class="p-2 mb-3 mt-1"></div>
 </div>
 <script>
         {{#js}}
@@ -95,6 +103,11 @@
                 update_dropdown($el);
 
                 filter_course_list($el.text());
+            });
+
+            $('#block_mycourses_showmore').on('click', function(e) {
+                e.preventDefault();
+                filter_course_list(1000);
             });
 
             // Load default.

@@ -26,6 +26,7 @@
 
 namespace block_mycourses;
 require_once($CFG->libdir . '/gradelib.php');
+require_once $CFG->libdir . '/completionlib.php';
 
 use completion_completion;
 use completion_info;
@@ -72,7 +73,7 @@ class course {
      * @return string
      */
     public function date_started() : string {
-        return date('d-m-Y', $this->course->startdate);
+        return date('d-m-Y', $this->course->enrolment_start);
     }
 
     /**
@@ -141,7 +142,11 @@ class course {
             return new lang_string('text:course_not_started', __NAMESPACE__);
         }
 
-        if ($completion->progress == 100) {
+        if ($completion->progress == 100 && $completion->timecompleted === '01-01-1970') {
+            return new lang_string('text:course_finished_no_date', __NAMESPACE__);
+        }
+
+        if ($completion->progress == 100 && $completion->timecompleted > 0) {
             return new lang_string('text:course_finished', __NAMESPACE__, ['date' => $completion->timecompleted]);
         }
 

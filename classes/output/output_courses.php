@@ -74,8 +74,8 @@ class output_courses implements renderable, templatable {
         $limit = helper::get_course_limit();
 
         $list = [
-            6 => ['value' => 6],
-            12 => ['value' => 12],
+            8 => ['value' => 8],
+            16 => ['value' => 16],
             24 => ['value' => 24],
         ];
 
