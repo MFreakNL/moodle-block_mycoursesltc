@@ -20,12 +20,91 @@
     @author    Luuk Verhoeven
 }}
 <div class="block_mycourses">
-    <div>
-        <div class="row">
-            {{#courses}}
-                {{> block_mycourses/partical_course }}
-            {{/courses}}
-        </div>
+    <div class="grid">
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+        {{#courses}}
+            {{> block_mycourses/partical_course }}
+        {{/courses}}
     </div>
     {{> block_mycourses/partical_course_limit_dropdown }}
 </div>
+<style>
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .grid-sizer {
+        width: 24.54%;
+    }
+
+    .gutter-sizer {
+        width: 0.625%;
+    }
+
+    .grid-item {
+        position: relative;
+        float: left;
+        width: 24.54%;
+        padding-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .grid-item .inner{
+        min-height: 220px;
+    }
+
+    @media (max-width: 1650px) {
+
+        .grid-sizer {
+            width: 32.00%;
+        }
+
+        .grid-item {
+            width: 32.00%;
+            padding-bottom: 20px;
+        }
+
+        .grid-item .inner{
+            min-height: 250px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+
+        .grid-sizer {
+            width: 49.08%;
+        }
+
+        .grid-item {
+            width: 49.08%;
+            padding-bottom: 20px;
+        }
+
+        .grid-item .inner{
+            min-height: 230px;
+        }
+    }
+
+    @media (max-width: 863px) {
+
+        .grid-sizer {
+            width: 90%;
+        }
+
+        .gutter-sizer {
+            width: 0%;
+        }
+
+        .grid-item {
+            width: 90%;
+            padding-bottom: 20px;
+        }
+
+        .grid-item .inner{
+            min-height: 180px;
+        }
+    }
+</style>

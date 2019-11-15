@@ -1,8 +1,11 @@
+.block_mycourses * {
+    box-sizing: border-box;
+}
+
 .block_mycourses .course-item .inner {
     border: 1px solid #642995;
     border-radius: 3px;
     overflow: hidden;
-    min-height: 186px;
 }
 
 .block_mycourses .course-item .left {
@@ -33,6 +36,8 @@
     height: 30px;
     border: 1px solid #642995;
     margin: 0 5px 5px 5px;
+    bottom: 52px;
+    position: absolute;
 }
 
 .block_mycourses .course-item .progress-percentage {
@@ -51,13 +56,20 @@
 }
 
 .block_mycourses footer {
-    padding: 5px;
     text-align: right;
     border-top: 1px solid #642995;
-    clear: both;
+    position: absolute;
+    bottom: 26px;
     width: 100%;
 }
 
 .block_mycourses footer a {
     color: #642995;
+    margin-right: 5px;
 }
+
+/*.block_mycourses .grid:after {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    clear: both;*/
+/*}*/

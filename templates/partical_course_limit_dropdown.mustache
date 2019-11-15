@@ -72,6 +72,44 @@
         {{#js}}
         require(['jquery'], function($) {
 
+            function resize_window(){
+                console.log('resize_window()');
+                var highestBox = 0;
+
+                $('.grid-item').each(function() {
+                    if ($(this).height() > highestBox) {
+                        highestBox = $(this).height();
+                    }
+                });
+
+                // $('.grid-item .inner').css({
+                //     'height': highestBox,
+                //     'min-height': highestBox,
+                //     'max-height': highestBox
+                // });
+            }
+
+            $(document).ready(function() {
+                var container = document.querySelector('.block_mycourses .grid');
+                var msnry = new Masonry(container, {
+                    columnWidth: '.grid-sizer',
+                    gutter: '.gutter-sizer',
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                });
+
+                msnry.once( 'layoutComplete', function( items ) {
+                    resize_window();
+                });
+                msnry.layout();
+
+                var timer;
+                window.onresize = function(){
+                    clearTimeout(timer);
+                    timer = setTimeout(resize_window, 100);
+                };
+            });
+
             /**
              * Display x courses
              *

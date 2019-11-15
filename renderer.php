@@ -44,6 +44,8 @@ class block_mycourses_renderer extends plugin_renderer_base {
      * @throws moodle_exception
      */
     public function get_courses_overview() : string {
+        global $PAGE;
+        $PAGE->requires->js('/blocks/mycourses/javascript/masonry.js' , true);
         $context = new output_courses();
 
         return parent::render_from_template('block_mycourses/courses_overview',

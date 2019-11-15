@@ -58,10 +58,12 @@ class output_courses implements renderable, templatable {
      * @throws \dml_exception
      */
     public function export_for_template(renderer_base $output) {
+        global $CFG;
         $output = new stdClass();
         $output->courses = helper::get_enrolled_courses();
         $output->itemsperpage = $this->get_items_per_page();
         $output->courselimit =  helper::get_course_limit();
+        $output->wwwroot =  $CFG->wwwroot;
         return $output;
     }
 
