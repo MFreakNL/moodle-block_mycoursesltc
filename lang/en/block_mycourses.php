@@ -30,7 +30,8 @@ $string['description'] = 'Overview of an user there active courses';
 
 // Access.
 $string['mycourses:addinstance'] = 'Add a new block for user mycourses';
-$string['mycourses:myaddinstance'] = 'Add a new Block for user mycourses to my moodle';
+$string['mycourses:myaddinstance'] = 'Add a new Block for user mycourses to my Moodle';
+$string['mycourses:view'] = 'Allow viewing block my courses';
 
 // Settings.
 $string['settings:defaultimage'] = 'Default image';

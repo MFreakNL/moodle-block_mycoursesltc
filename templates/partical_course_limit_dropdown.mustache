@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="p-2 mb-3 mt-1">
-        <a href="#" id="block_mycourses_showmore" class="btn btn-primary">
+        <a href="#" id="block_mycourses_showmore" class="btn btn-default">
             {{# str}} btn:showmore, block_mycourses {{/ str}}
         </a>
     </div>
@@ -71,16 +71,21 @@
 <script>
         {{#js}}
         require(['jquery'], function($) {
+            var msnry;
+            var container = document.querySelector('.block_mycourses .grid');
 
-            $(document).ready(function() {
-                var container = document.querySelector('.block_mycourses .grid');
-                var msnry = new Masonry(container, {
+            function render_msnry(){
+                msnry = new Masonry(container, {
                     columnWidth: '.grid-sizer',
                     gutter: '.gutter-sizer',
                     itemSelector: '.grid-item',
                     percentPosition: true,
                 });
                 msnry.layout();
+            }
+
+            $(document).ready(function() {
+                render_msnry();
             });
 
             /**
@@ -115,11 +120,14 @@
                 update_dropdown($el);
 
                 filter_course_list($el.text());
+
+                render_msnry();
             });
 
             $('#block_mycourses_showmore').on('click', function(e) {
                 e.preventDefault();
                 filter_course_list(1000);
+                render_msnry();
             });
 
             // Load default.
