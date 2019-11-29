@@ -25,30 +25,30 @@
  **/
 
 // Default.
-$string['pluginname'] = 'My courses';
-$string['description'] = 'Overview of an user there active courses';
+$string['pluginname'] = 'Mijn cursussen';
+$string['description'] = 'Overzicht van een gebruikers active cursussen.';
 
 // Access.
-$string['mycourses:addinstance'] = 'Add a new block for user mycourses';
-$string['mycourses:myaddinstance'] = 'Add a new Block for user mycourses to my Moodle';
-$string['mycourses:view'] = 'Allow viewing block my courses';
+$string['mycourses:addinstance'] = 'Voeg een nieuwe blok voor gebruiker Mijn cursussen toe.';
+$string['mycourses:myaddinstance'] = 'Voeg een nieuwe blok voor gebruikers Mijn cursussen toe aan mijn startpagina.';
+$string['mycourses:view'] = 'Sta toe om het blok Mijn cursussen te zien.';
 
 // Settings.
-$string['settings:defaultimage'] = 'Default image';
-$string['settings:defaultimagedesc'] = 'The default course images';
-$string['settings:courselimit'] = 'Course limit';
-$string['settings:courselimit_desc'] = 'The maximum number of enrolled courses shown';
+$string['settings:defaultimage'] = 'Standaard afbeelding';
+$string['settings:defaultimagedesc'] = 'De standaard cursus afbeelding.';
+$string['settings:courselimit'] = 'Limiet cursussen';
+$string['settings:courselimit_desc'] = 'Het maximum aantal aangemelde cursussen die getoond worden.';
 
 // Privacy.
-$string['privacy:metadata'] = 'The atto_clear plugin does not store any personal data.';
+$string['privacy:metadata'] = 'De Mijn cursus plugin slaat geen persoonlijke data op.';
 
 // Text.
-$string['text:startdate'] = 'Startdate:';
-$string['text:grade'] = 'Grade:';
-$string['text:course_not_started'] = 'Not started';
-$string['text:course_finished'] = 'Completed (100%) on {$a->date}';
-$string['text:course_finished_no_date'] = 'Completed (100%)';
+$string['text:startdate'] = 'Gestart op:';
+$string['text:grade'] = 'Eindcijfer:';
+$string['text:course_not_started'] = 'Nog niet gestart';
+$string['text:course_finished'] = 'Voltooid (100%) op {$a->date}';
+$string['text:course_finished_no_date'] = 'Voltooid (100%)';
 
 // Button.
-$string['btn:start_course'] = 'Enter course';
-$string['btn:showmore'] = 'Show all';
+$string['btn:start_course'] = 'Ga naar cursus';
+$string['btn:showmore'] = 'Toon alle';
