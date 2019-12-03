@@ -34,4 +34,5 @@ Types of changes
 ## [3.5.0] - 2019-10-28
 
 ### Added
+- Renamed from block_mycourses to block_mycoursesltc
 - Release of the first official version.
