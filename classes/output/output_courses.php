@@ -19,16 +19,16 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
 
-namespace block_mycourses\output;
+namespace block_mycoursesltc\output;
 defined('MOODLE_INTERNAL') || die;
 
 use ArrayIterator;
-use block_mycourses\helper;
+use block_mycoursesltc\helper;
 use renderable;
 use renderer_base;
 use stdClass;
@@ -39,7 +39,7 @@ use templatable;
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */

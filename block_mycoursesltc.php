@@ -20,11 +20,11 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
-class block_mycourses extends block_base {
+class block_mycoursesltc extends block_base {
 
     /**
      * Init
@@ -33,7 +33,7 @@ class block_mycourses extends block_base {
      * @throws coding_exception
      */
     public function init() {
-        $this->title = get_string('pluginname', 'block_mycourses');
+        $this->title = get_string('pluginname', 'block_mycoursesltc');
     }
 
     /**
@@ -78,7 +78,7 @@ class block_mycourses extends block_base {
     function specialization()  {
 
         if (empty($this->config->title)) {
-            $this->title = get_string('pluginname', 'block_mycourses');
+            $this->title = get_string('pluginname', 'block_mycoursesltc');
 
             return;
         }
@@ -99,7 +99,7 @@ class block_mycourses extends block_base {
             return $this->content;
         }
 
-        if ((!isloggedin() || isguestuser() || !has_capability('block/mycourses:view', $this->context))) {
+        if ((!isloggedin() || isguestuser() || !has_capability('block/mycoursesltc:view', $this->context))) {
             $this->content = new stdClass();
             $this->content->text = '';
 
@@ -107,10 +107,10 @@ class block_mycourses extends block_base {
         }
 
         // Fix ajax call.
-        $USER->ajax_updatable_user_prefs['block_mycourses_limit'] = true;
+        $USER->ajax_updatable_user_prefs['block_mycoursesltc_limit'] = true;
 
 
-        $renderer = $PAGE->get_renderer('block_mycourses');
+        $renderer = $PAGE->get_renderer('block_mycoursesltc');
 
         $this->content = new stdClass();
         $this->content->text = $renderer->get_courses_overview();

@@ -19,12 +19,12 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
 
-namespace block_mycourses;
+namespace block_mycoursesltc;
 
 use ArrayIterator;
 use coding_exception;
@@ -40,7 +40,7 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */
@@ -280,7 +280,7 @@ final class helper {
      * @throws \dml_exception
      */
     public static function get_default_image() : string {
-        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycourses', 'defaultimage',
+        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycoursesltc', 'defaultimage',
             1, '/', '');
     }
 
@@ -311,14 +311,14 @@ final class helper {
      * @throws \coding_exception
      */
     public static function get_course_limit() : int {
-        $default = get_config('block_mycourses', 'courselimit');
-        $userpreference = get_user_preferences('block_mycourses_limit', false);
+        $default = get_config('block_mycoursesltc', 'courselimit');
+        $userpreference = get_user_preferences('block_mycoursesltc_limit', false);
 
         if ($userpreference) {
             return (int)$userpreference;
         }
 
-        set_user_preference('block_mycourses_limit', $default);
+        set_user_preference('block_mycoursesltc_limit', $default);
 
         return (int)$default;
     }

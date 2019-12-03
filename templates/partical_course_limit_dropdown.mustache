@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @package moodle-block_mycourses
+    @package moodle-block_mycoursesltc
     @copyright 03/11/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
     @author    Luuk Verhoeven
 }}
@@ -62,8 +62,8 @@
         </div>
     </div>
     <div class="p-2 mb-3 mt-1">
-        <a href="#" id="block_mycourses_showmore" class="btn btn-default">
-            {{# str}} btn:showmore, block_mycourses {{/ str}}
+        <a href="#" id="block_mycoursesltc_showmore" class="btn btn-default">
+            {{# str}} btn:showmore, block_mycoursesltc {{/ str}}
         </a>
     </div>
     <div class="p-2 mb-3 mt-1"></div>
@@ -72,7 +72,7 @@
         {{#js}}
         require(['jquery'], function($) {
             var msnry;
-            var container = document.querySelector('.block_mycourses .grid');
+            var container = document.querySelector('.block_mycoursesltc .grid');
 
             function render_msnry(){
                 msnry = new Masonry(container, {
@@ -94,7 +94,7 @@
              * @param {int} limit
              */
             function filter_course_list(limit) {
-                $(".block_mycourses .course-item:lt(" + limit + ")").fadeIn();
+                $(".block_mycoursesltc .course-item:lt(" + limit + ")").fadeIn();
             }
 
             /**
@@ -105,12 +105,12 @@
             function update_dropdown($el) {
                 var limit = $.trim($el.text());
                 $('#paging-control-limit-container a.dropdown-item').removeClass('active');
-                $('.block_mycourses .course-item').hide();
+                $('.block_mycoursesltc .course-item').hide();
                 $el.addClass('active');
 
                 $('#paging-control-limit-container button').text(limit);
 
-                M.util.set_user_preference('block_mycourses_limit', limit);
+                M.util.set_user_preference('block_mycoursesltc_limit', limit);
             }
 
             $('#paging-control-limit-container a.dropdown-item').on('click', function(e) {
@@ -124,7 +124,7 @@
                 render_msnry();
             });
 
-            $('#block_mycourses_showmore').on('click', function(e) {
+            $('#block_mycoursesltc_showmore').on('click', function(e) {
                 e.preventDefault();
                 filter_course_list(1000);
                 render_msnry();

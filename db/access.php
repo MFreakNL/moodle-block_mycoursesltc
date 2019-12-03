@@ -19,7 +19,7 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $capabilities = [
 
-    'block/mycourses:myaddinstance' => [
+    'block/mycoursesltc:myaddinstance' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
@@ -38,7 +38,7 @@ $capabilities = [
         'clonepermissionsfrom' => 'moodle/my:manageblocks',
     ],
 
-    'block/mycourses:addinstance' => [
+    'block/mycoursesltc:addinstance' => [
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
@@ -50,7 +50,7 @@ $capabilities = [
         'clonepermissionsfrom' => 'moodle/site:manageblocks',
     ],
 
-    'block/mycourses:view' => [
+    'block/mycoursesltc:view' => [
         'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'read',
         'contextlevel' => CONTEXT_BLOCK,

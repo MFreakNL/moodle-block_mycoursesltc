@@ -1,6 +1,6 @@
 ## Moodle block for listing user their active courses
 
-In brief, the MFreak block `block_mycourses` gives the user an overview of their active courses.
+In brief, the MFreak block `block_mycoursesltc` gives the user an overview of their active courses.
  
 ![MFreak.nl](https://MFreak.nl/logo_small.png)
 
@@ -22,7 +22,7 @@ In brief, the MFreak block `block_mycourses` gives the user an overview of their
 - Display completion percentage
 
 ## Installation
-1.  Copy this plugin to the `blocks\mycourses` folder on the server
+1.  Copy this plugin to the `blocks\mycoursesltc` folder on the server
 2.  Login as administrator
 3.  Go to Site Administrator > Notification
 4.  Install the plugin

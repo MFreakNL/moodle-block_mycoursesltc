@@ -19,7 +19,7 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -27,9 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
 
-    $settings->add(new admin_setting_configstoredfile('block_mycourses/defaultcourseimage',
-        get_string('settings:defaultimage', 'block_mycourses'),
-        get_string('settings:defaultimagedesc', 'block_mycourses'),
+    $settings->add(new admin_setting_configstoredfile('block_mycoursesltc/defaultcourseimage',
+        get_string('settings:defaultimage', 'block_mycoursesltc'),
+        get_string('settings:defaultimagedesc', 'block_mycoursesltc'),
         'defaultimage', 1, ['maxfiles' => 1, 'accepted_types' => ['.jpeg', '.jpg', '.png', '.svg']]));
 
     $choices = [
@@ -37,9 +37,9 @@ if ($ADMIN->fulltree) {
         16 => 16,
         24 => 24,
     ];
-    $settings->add(new admin_setting_configselect('block_mycourses/courselimit',
-        get_string('settings:courselimit', 'block_mycourses'),
-        get_string('settings:courselimit_desc', 'block_mycourses'),
+    $settings->add(new admin_setting_configselect('block_mycoursesltc/courselimit',
+        get_string('settings:courselimit', 'block_mycoursesltc'),
+        get_string('settings:courselimit_desc', 'block_mycoursesltc'),
         6, $choices));
 
 }

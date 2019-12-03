@@ -19,7 +19,7 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -29,9 +29,9 @@ $string['pluginname'] = 'My courses';
 $string['description'] = 'Overview of an user there active courses';
 
 // Access.
-$string['mycourses:addinstance'] = 'Add a new block for user mycourses';
-$string['mycourses:myaddinstance'] = 'Add a new Block for user mycourses to my Moodle';
-$string['mycourses:view'] = 'Allow viewing block my courses';
+$string['mycoursesltc:addinstance'] = 'Add a new block for user mycoursesltc';
+$string['mycoursesltc:myaddinstance'] = 'Add a new Block for user mycoursesltc to my Moodle';
+$string['mycoursesltc:view'] = 'Allow viewing block my courses';
 
 // Settings.
 $string['settings:defaultimage'] = 'Default image';

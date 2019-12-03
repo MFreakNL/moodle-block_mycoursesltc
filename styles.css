@@ -1,41 +1,41 @@
-.block_mycourses .fa {
+.block_mycoursesltc .fa {
     color: #000 !important;
 }
 
-.block_mycourses * {
+.block_mycoursesltc * {
     box-sizing: border-box;
 }
 
-.block_mycourses .course-item .inner {
+.block_mycoursesltc .course-item .inner {
     border: 1px solid #642995;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.block_mycourses .course-item .left {
+.block_mycoursesltc .course-item .left {
     margin: 5px;
     width: 125px;
     float: left;
 }
 
-.block_mycourses .course-item .left img {
+.block_mycoursesltc .course-item .left img {
     width: 125px;
 }
 
-.block_mycourses .course-item .right {
+.block_mycoursesltc .course-item .right {
     width: calc(100% - 135px);
     line-height: 30px;
     float: left;
 }
 
-.block_mycourses .course-item .right h4 {
+.block_mycoursesltc .course-item .right h4 {
     font-size: 17px;
     font-weight: bold;
     margin: 15px 0 10px 0;
     word-break: keep-all;
 }
 
-.block_mycourses .course-item .progressbar {
+.block_mycoursesltc .course-item .progressbar {
     clear: both;
     width: calc(80% - 10px);
     height: 30px;
@@ -45,22 +45,22 @@
     position: absolute;
 }
 
-.block_mycourses .course-item .progress-percentage {
+.block_mycoursesltc .course-item .progress-percentage {
     background: #642995;
     height: 29px;
 }
 
-.block_mycourses .course-item .status-text {
+.block_mycoursesltc .course-item .status-text {
     position: absolute;
     margin-left: 10px;
     margin-top: -28px;
 }
 
-.block_mycourses .course-item .started .status-text {
+.block_mycoursesltc .course-item .started .status-text {
     color: #fff;
 }
 
-.block_mycourses footer {
+.block_mycoursesltc footer {
     text-align: right;
     border-top: 1px solid #642995;
     position: absolute;
@@ -68,26 +68,26 @@
     width: 100%;
 }
 
-.block_mycourses footer a {
+.block_mycoursesltc footer a {
     color: #000;
     margin-right: 10px;
 }
 
-.block_mycourses .grid:after {
+.block_mycoursesltc .grid:after {
     content: '';
     display: block;
     clear: both;
 }
 
-.block_mycourses .gutter-sizer {
+.block_mycoursesltc .gutter-sizer {
     width: 2%;
 }
 
-.block_mycourses .grid-sizer {
+.block_mycoursesltc .grid-sizer {
     width: 23%;
 }
 
-.block_mycourses .grid-item {
+.block_mycoursesltc .grid-item {
     position: relative;
     float: left;
     width: 23%;
@@ -95,23 +95,23 @@
     overflow: hidden;
 }
 
-.block_mycourses .grid-item .inner {
+.block_mycoursesltc .grid-item .inner {
     min-height: 220px;
 }
 
 /*3-ITEMS*/
 @media (max-width: 2200px) {
 
-    .block_mycourses .grid-sizer {
+    .block_mycoursesltc .grid-sizer {
         width: 32.00%;
     }
 
-    .block_mycourses .grid-item {
+    .block_mycoursesltc .grid-item {
         width: 32.00%;
         padding-bottom: 20px;
     }
 
-    .block_mycourses .grid-item .inner {
+    .block_mycoursesltc .grid-item .inner {
         min-height: 250px;
     }
 }
@@ -119,20 +119,20 @@
 /*2-ITEMS*/
 @media (max-width: 1600px) {
 
-    .block_mycourses .gutter-sizer {
+    .block_mycoursesltc .gutter-sizer {
         width: 2%;
     }
 
-    .block_mycourses .grid-sizer {
+    .block_mycoursesltc .grid-sizer {
         width: 48.08%;
     }
 
-    .block_mycourses .grid-item {
+    .block_mycoursesltc .grid-item {
         width: 48.08%;
         padding-bottom: 20px;
     }
 
-    .block_mycourses .grid-item .inner {
+    .block_mycoursesltc .grid-item .inner {
         min-height: 230px;
     }
 }
@@ -140,31 +140,31 @@
 /*1-ITEM*/
 @media (max-width: 1163px) {
 
-    .block_mycourses .grid-sizer {
+    .block_mycoursesltc .grid-sizer {
         width: 90%;
     }
 
-    .block_mycourses .gutter-sizer {
+    .block_mycoursesltc .gutter-sizer {
         width: 0%;
     }
 
-    .block_mycourses .grid-item {
+    .block_mycoursesltc .grid-item {
         width: 90%;
         padding-bottom: 20px;
     }
 
-    .block_mycourses .grid-item .inner {
+    .block_mycoursesltc .grid-item .inner {
         min-height: 180px;
     }
 }
 
-#block_mycourses_showmore {
+#block_mycoursesltc_showmore {
     width: 150px;
     display: block;
     margin: auto;
 }
 
-.block_mycourses .dropdown-item {
+.block_mycoursesltc .dropdown-item {
     display: block;
     padding: 2px 5px;
 }

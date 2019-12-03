@@ -19,7 +19,7 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycourses
+ * @package   moodle-block_mycoursesltc
  * @copyright 29/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -37,7 +37,7 @@
  *
  * @return bool may terminate if file not found or do not die not specified
  */
-function block_mycourses_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, $sendfileoptions) {
+function block_mycoursesltc_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, $sendfileoptions) {
     global $CFG;
     require_once("$CFG->libdir/filelib.php");
 
@@ -48,7 +48,7 @@ function block_mycourses_pluginfile($course, $cm, $context, $filearea, $args, $f
     $itemid = $args[0];
 
     // Get the file.
-    $files = $fs->get_area_files($context->id, 'block_mycourses', 'defaultimage' , 1);
+    $files = $fs->get_area_files($context->id, 'block_mycoursesltc', 'defaultimage' , 1);
 
     if (!empty($files)) {
 

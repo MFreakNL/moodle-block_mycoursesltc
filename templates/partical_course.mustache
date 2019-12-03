@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @package moodle-block_mycourses
+    @package moodle-block_mycoursesltc
     @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
     @author    Luuk Verhoeven
 }}
@@ -28,10 +28,10 @@
             <div class="right">
                 <h4>{{fullname}}</h4>
                 <div class="startdate">
-                    {{# str}} text:startdate, block_mycourses {{/ str}} {{date_started}}
+                    {{# str}} text:startdate, block_mycoursesltc {{/ str}} {{date_started}}
                 </div>
                 <div class="grade">
-                    {{# str}} text:grade, block_mycourses {{/ str}} {{grade}}
+                    {{# str}} text:grade, block_mycoursesltc {{/ str}} {{grade}}
                 </div>
             </div>
             <div class="progressbar {{#course_is_started}}started{{/course_is_started}}">
@@ -40,7 +40,7 @@
             </div>
         </section>
         <footer>
-            <a href="{{courseurl}}">{{# str}} btn:start_course, block_mycourses {{/ str}}
+            <a href="{{courseurl}}">{{# str}} btn:start_course, block_mycoursesltc {{/ str}}
                 <i class="fa fa-arrow-circle-right"></i>
             </a>
         </footer>
