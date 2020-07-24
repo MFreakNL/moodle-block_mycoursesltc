@@ -8,10 +8,14 @@ In brief, the MFreak block `block_mycoursesltc` gives the user an overview of th
 ![Lesterhuis Training & Consultancy](https://MFreak.nl/logo_small_ltnc.png)
 
 * Author: Luuk Verhoeven, [MFreak.nl](https://MFreak.nl/)
+* Author: Gemma Lesterhuis, [Lesterhuis Training & Consultancy](https://ltnc.nl/)
+
 * Min. required: Moodle 3.9.*
 * Supports PHP: 7.2 
 
+![PHP7.2](https://img.shields.io/badge/PHP-7.2-brightgreen.svg)
 ![Moodle39](https://img.shields.io/badge/moodle-3.9-brightgreen.svg)
+![GDPR](https://img.shields.io/badge/GDPR-null_provider-brightgreen.svg)
 
 ## Screens
 ![Screen](pix/screen.png)
