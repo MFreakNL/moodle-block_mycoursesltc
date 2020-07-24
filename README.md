@@ -45,3 +45,7 @@ The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE.md) for more i
 ## Contributing
 
 Contributions are welcome and will be fully credited. We accept contributions via Pull Requests on Github.
+
+## Changelogs
+
+Please see [Changelogs](CHANGELOGS.md) for more information.
