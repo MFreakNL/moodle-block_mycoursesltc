@@ -28,7 +28,6 @@ namespace block_mycoursesltc;
 
 use ArrayIterator;
 use coding_exception;
-use context_course;
 use context_helper;
 use context_system;
 use moodle_url;
@@ -62,7 +61,7 @@ final class helper {
      * @throws \coding_exception
      * @throws \dml_exception
      */
-    public static function get_my_courses($userid = 0, $fields = null, $sort = 'sortorder ASC', $limit = 0) {
+    public static function get_my_courses(int $userid = 0, $fields = null, string $sort = 'sortorder ASC', int $limit = 0) : array {
         global $DB;
 
         // Guest account does not have any courses
@@ -86,19 +85,18 @@ final class helper {
 
         if (empty($fields)) {
             $fields = $basefields;
+
+        } else if (is_string($fields)) {
+
+            // Turn the fields from a string to an array.
+            $fields = explode(',', $fields);
+            $fields = array_map('trim', $fields);
+            $fields = array_unique(array_merge($basefields, $fields));
+
+        } else if (is_array($fields)) {
+            $fields = array_unique(array_merge($basefields, $fields));
         } else {
-            if (is_string($fields)) {
-                // turn the fields from a string to an array
-                $fields = explode(',', $fields);
-                $fields = array_map('trim', $fields);
-                $fields = array_unique(array_merge($basefields, $fields));
-            } else {
-                if (is_array($fields)) {
-                    $fields = array_unique(array_merge($basefields, $fields));
-                } else {
-                    throw new coding_exception('Invalid $fileds parameter in enrol_get_my_courses()');
-                }
-            }
+            throw new coding_exception('Invalid $fileds parameter in enrol_get_my_courses()');
         }
         if (in_array('*', $fields)) {
             $fields = ['*'];
@@ -143,24 +141,15 @@ final class helper {
         $params['userid'] = $userid;
         $params['active'] = ENROL_USER_ACTIVE;
         $params['enabled'] = ENROL_INSTANCE_ENABLED;
-        // $params['now1'] = time(); // improves db caching
-        // $params['now2'] = $params['now1'];
 
         $courses = $DB->get_records_sql($sql, $params, 0, $limit);
 
         // preload contexts and check visibility
         foreach ($courses as $id => $course) {
-//            context_helper::preload_from_record($course);
-//            if (!$course->visible) {
-//                if (!$context = context_course::instance($id, IGNORE_MISSING)) {
-//                    unset($courses[$id]);
-//                    continue;
-//                }
-//            }
             $enrolmentinfo = self::enrol_get_enrolment_info($id, $userid);
 
-            $course->enrolment_start =$enrolmentinfo['startdate'];
-            $course->enrolment_end =$enrolmentinfo['enddate'];
+            $course->enrolment_start = $enrolmentinfo['startdate'];
+            $course->enrolment_end = $enrolmentinfo['enddate'];
             $courses[$id] = $course;
         }
 
@@ -175,10 +164,10 @@ final class helper {
      * @param int $courseid
      * @param int $userid
      *
-     * @return int|bool timestamp when active enrolment ends, false means no active enrolment now, 0 means never
+     * @return array
      * @throws \dml_exception
      */
-    public static function enrol_get_enrolment_info($courseid, $userid) : array {
+    public static function enrol_get_enrolment_info(int $courseid, int $userid) : array {
         global $DB;
 
         $sql = "SELECT ue.*

@@ -30,8 +30,13 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (3.9) - 2020-07-24
 
-## [3.5.0] - 2019-10-28
+### Updated
+- No issues found in Moodle 3.9
+- PHP 7.2 stricter code style.
+
+## Version (3.5) - 2019-10-28
 
 ### Added
 - Renamed from block_mycourses to block_mycoursesltc

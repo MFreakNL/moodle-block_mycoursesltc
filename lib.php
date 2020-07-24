@@ -48,18 +48,19 @@ function block_mycoursesltc_pluginfile($course, $cm, $context, $filearea, $args,
     $itemid = $args[0];
 
     // Get the file.
-    $files = $fs->get_area_files($context->id, 'block_mycoursesltc', 'defaultimage' , 1);
+    $files = $fs->get_area_files($context->id, 'block_mycoursesltc', 'defaultimage', 1);
 
     if (!empty($files)) {
 
-        foreach($files as $file){
+        foreach ($files as $file) {
 
-            if($file->is_directory()){
+            if ($file->is_directory()) {
                 continue;
             }
 
             \core\session\manager::write_close(); // Unlock session during file serving.
             send_stored_file($file, null, 0, $forcedownload, $options);
+
             return;
         }
     }

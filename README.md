@@ -5,10 +5,10 @@ In brief, the MFreak block `block_mycoursesltc` gives the user an overview of th
 ![MFreak.nl](https://MFreak.nl/logo_small.png)
 
 * Author: Luuk Verhoeven, [MFreak.nl](https://MFreak.nl/)
-* Min. required: Moodle 3.5.*
+* Min. required: Moodle 3.9.*
 * Supports PHP: 7.2 
 
-![Moodle35](https://img.shields.io/badge/moodle-3.5-brightgreen.svg)
+![Moodle39](https://img.shields.io/badge/moodle-3.9-brightgreen.svg)
 
 ## Screens
 ![Screen](pix/screen.png)
@@ -33,7 +33,7 @@ If you discover any security related issues, please email [luuk@MFreak.nl](mailt
 
 ## License
 
-The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE) for more information.
+The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE.md) for more information.
 
 ## Contributing
 

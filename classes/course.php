@@ -81,7 +81,7 @@ class course {
      *
      * @return string
      */
-    public function grade() {
+    public function grade() : string {
         global $USER;
 
         $gradeitem = grade_item::fetch_all([
@@ -160,7 +160,7 @@ class course {
      * @throws \coding_exception
      * @throws \dml_exception
      */
-    public function image() {
+    public function image() : string {
         global $CFG;
 
         // @TODO caching

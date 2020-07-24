@@ -45,10 +45,10 @@ class block_mycoursesltc_renderer extends plugin_renderer_base {
      */
     public function get_courses_overview() : string {
         global $PAGE;
-        $PAGE->requires->js('/blocks/mycoursesltc/javascript/masonry.js' , true);
+        $PAGE->requires->js('/blocks/mycoursesltc/javascript/masonry.js', true);
         $context = new output_courses();
 
-        return parent::render_from_template('block_mycoursesltc/courses_overview',
+        return $this->render_from_template('block_mycoursesltc/courses_overview',
             $context->export_for_template($this));
     }
 
