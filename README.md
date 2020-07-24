@@ -48,4 +48,4 @@ Contributions are welcome and will be fully credited. We accept contributions vi
 
 ## Changelogs
 
-Please see [Changelogs](CHANGELOGS.md) for more information.
+Please see [Changelogs](CHANGELOG.md) for more information.
