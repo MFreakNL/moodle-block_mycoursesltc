@@ -17,7 +17,7 @@
 /**
  * Privacy Subsystem implementation for block_mycoursesltc.
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Privacy Subsystem for block_mycoursesltc implementing null_provider.
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */

@@ -32,12 +32,12 @@ Types of changes
 
 ## Version (3.9) - 2020-07-24
 
-### Updated
+##### Updated
 - No issues found in Moodle 3.9
 - PHP 7.2 stricter code style.
 
 ## Version (3.5) - 2019-10-28
 
-### Added
+##### Added
 - Renamed from block_mycourses to block_mycoursesltc
 - Release of the first official version.

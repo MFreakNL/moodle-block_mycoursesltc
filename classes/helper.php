@@ -19,7 +19,7 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -39,7 +39,7 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */
@@ -64,7 +64,7 @@ final class helper {
     public static function get_my_courses(int $userid = 0, $fields = null, string $sort = 'sortorder ASC', int $limit = 0) : array {
         global $DB;
 
-        // Guest account does not have any courses
+        // Guest account does not have any courses.
         if (isguestuser() or !isloggedin()) {
             return ([]);
         }
@@ -127,7 +127,7 @@ final class helper {
         $params['contextlevel'] = CONTEXT_COURSE;
         $wheres = implode(" AND ", $wheres);
 
-        //note: we can not use DISTINCT + text fields due to Oracle and MS limitations, that is why we have the subselect there
+        // Note we can not use DISTINCT + text fields due to Oracle and MS limitations, that is why we have the subselect there.
         $sql = "SELECT $coursefields $ccselect
               FROM {course} c
               JOIN (SELECT DISTINCT e.courseid
@@ -144,7 +144,7 @@ final class helper {
 
         $courses = $DB->get_records_sql($sql, $params, 0, $limit);
 
-        // preload contexts and check visibility
+        // Preload contexts and check visibility.
         foreach ($courses as $id => $course) {
             $enrolmentinfo = self::enrol_get_enrolment_info($id, $userid);
 
@@ -205,8 +205,9 @@ final class helper {
             } else {
                 $changes[$start] = 1;
             }
+
             if ($end === 0) {
-                // no end
+                continue;
             } else if (isset($changes[$end])) {
                 $changes[$end] = $changes[$end] - 1;
             } else {
@@ -214,8 +215,8 @@ final class helper {
             }
         }
 
-        // let's sort then enrolment starts&ends and go through them chronologically,
-        // looking for current status and the next future end of enrolment
+        // Let's sort then enrolment starts&ends and go through them chronologically.
+        // Looking for current status and the next future end of enrolment.
         ksort($changes);
 
         $now = time();
@@ -225,24 +226,22 @@ final class helper {
         foreach ($changes as $time => $change) {
             if ($time > $now) {
                 if ($present === null) {
-                    // we have just went past current time
+                    // We have just went past current time.
                     $present = $current;
                     if ($present < 1) {
-                        // no enrolment active
+                        // No enrolment active.
                         return [
                             'enddate' => false,
                             'startdate' => false,
                         ];
                     }
                 }
-                if ($present !== null) {
-                    // we are already in the future - look for possible end
-                    if ($current + $change < 1) {
-                        return [
-                            'enddate' => $time,
-                            'startdate' => $started,
-                        ];
-                    }
+                // We are already in the future - look for possible end.
+                if (($present !== null) && $current + $change < 1) {
+                    return [
+                        'enddate' => $time,
+                        'startdate' => $started,
+                    ];
                 }
             }
             $current += $change;
