@@ -3,16 +3,17 @@
 In brief, the MFreak block `block_mycoursesltc` gives the user an overview of their active courses.
  
  Special thanks to Gemma Lesterhuis ([Lesterhuis Training & Consultancy](https://ltnc.nl/)) for develop & design, useful input, bug reports and beta testing
-
+ 
 ![MFreak.nl](https://MFreak.nl/logo_small.png)
 ![Lesterhuis Training & Consultancy](https://MFreak.nl/logo_small_ltnc.png)
 
 * Author: Luuk Verhoeven, [MFreak.nl](https://MFreak.nl/)
-* Author: Gemma Lesterhuis, [Lesterhuis Training & Consultancy](https://ltnc.nl/)
-* Min. required: Moodle 3.5.*
+* Min. required: Moodle 3.9.*
 * Supports PHP: 7.2 
 
-![Moodle35](https://img.shields.io/badge/moodle-3.5-brightgreen.svg)
+![PHP7.2](https://img.shields.io/badge/PHP-7.2-brightgreen.svg)
+![Moodle39](https://img.shields.io/badge/moodle-3.9-brightgreen.svg)
+![GDPR](https://img.shields.io/badge/GDPR-null_provider-brightgreen.svg)
 
 ## Screens
 ![Screen](pix/screen.png)
@@ -37,8 +38,12 @@ If you discover any security related issues, please email [luuk@MFreak.nl](mailt
 
 ## License
 
-The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE) for more information.
+The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE.md) for more information.
 
 ## Contributing
 
 Contributions are welcome and will be fully credited. We accept contributions via Pull Requests on Github.
+
+## Changelogs
+
+Please see [Changelogs](CHANGELOG.md) for more information.

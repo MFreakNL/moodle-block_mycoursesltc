@@ -57,14 +57,16 @@ class output_courses implements renderable, templatable {
      * @throws \coding_exception
      * @throws \dml_exception
      */
-    public function export_for_template(renderer_base $output) {
+    public function export_for_template(renderer_base $output) : stdClass {
         global $CFG;
-        $output = new stdClass();
-        $output->courses = helper::get_enrolled_courses();
-        $output->itemsperpage = $this->get_items_per_page();
-        $output->courselimit =  helper::get_course_limit();
-        $output->wwwroot =  $CFG->wwwroot;
-        return $output;
+
+        $data = new stdClass();
+        $data->courses = helper::get_enrolled_courses();
+        $data->itemsperpage = $this->get_items_per_page();
+        $data->courselimit = helper::get_course_limit();
+        $data->wwwroot = $CFG->wwwroot;
+
+        return $data;
     }
 
     /**
@@ -81,7 +83,7 @@ class output_courses implements renderable, templatable {
             24 => ['value' => 24],
         ];
 
-        $list = array_map(function ($item) use ($limit) {
+        $list = array_map(static function ($item) use ($limit) {
             if ($limit === $item['value']) {
                 $item += ['active' => true];
             }

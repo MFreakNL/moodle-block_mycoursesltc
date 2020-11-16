@@ -75,7 +75,7 @@ class block_mycoursesltc extends block_base {
      * @return void
      * @throws coding_exception
      */
-    function specialization()  {
+    function specialization() {
 
         if (empty($this->config->title)) {
             $this->title = get_string('pluginname', 'block_mycoursesltc');
@@ -93,7 +93,7 @@ class block_mycoursesltc extends block_base {
      * @throws coding_exception
      */
     public function get_content() {
-        global $PAGE , $USER;
+        global $PAGE, $USER;
 
         if ($this->content !== null) {
             return $this->content;
@@ -108,7 +108,6 @@ class block_mycoursesltc extends block_base {
 
         // Fix ajax call.
         $USER->ajax_updatable_user_prefs['block_mycoursesltc_limit'] = true;
-
 
         $renderer = $PAGE->get_renderer('block_mycoursesltc');
 
