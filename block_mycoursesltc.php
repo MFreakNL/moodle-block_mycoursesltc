@@ -20,10 +20,20 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
+
+/**
+ * Class block_mycoursesltc
+ *
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @package   block_mycoursesltc
+ * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
+ * @author    Luuk Verhoeven
+ */
 class block_mycoursesltc extends block_base {
 
     /**
@@ -32,18 +42,8 @@ class block_mycoursesltc extends block_base {
      * @return void
      * @throws coding_exception
      */
-    public function init() {
+    public function init() : void {
         $this->title = get_string('pluginname', 'block_mycoursesltc');
-    }
-
-    /**
-     * Are you going to allow multiple instances of each block?
-     * If yes, then it is assumed that the block WILL USE per-instance configuration
-     *
-     * @return boolean
-     */
-    function instance_allow_multiple() {
-        return false;
     }
 
     /**
@@ -52,7 +52,7 @@ class block_mycoursesltc extends block_base {
      *
      * @return boolean
      */
-    function has_config() {
+    public function has_config() : bool {
         return true;
     }
 
@@ -61,7 +61,7 @@ class block_mycoursesltc extends block_base {
      *
      * @return array
      */
-    public function applicable_formats() {
+    public function applicable_formats() : array {
         return [
             'my' => true,
         ];
@@ -75,7 +75,7 @@ class block_mycoursesltc extends block_base {
      * @return void
      * @throws coding_exception
      */
-    function specialization() {
+    public function specialization() : void {
 
         if (empty($this->config->title)) {
             $this->title = get_string('pluginname', 'block_mycoursesltc');
@@ -93,7 +93,7 @@ class block_mycoursesltc extends block_base {
      * @throws coding_exception
      */
     public function get_content() {
-        global $PAGE, $USER;
+        global $USER;
 
         if ($this->content !== null) {
             return $this->content;
@@ -109,7 +109,7 @@ class block_mycoursesltc extends block_base {
         // Fix ajax call.
         $USER->ajax_updatable_user_prefs['block_mycoursesltc_limit'] = true;
 
-        $renderer = $PAGE->get_renderer('block_mycoursesltc');
+        $renderer = $this->page->get_renderer('block_mycoursesltc');
 
         $this->content = new stdClass();
         $this->content->text = $renderer->get_courses_overview();

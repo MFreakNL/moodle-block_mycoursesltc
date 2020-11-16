@@ -19,14 +19,14 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 28/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2019120300;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version = 2020111601;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires = 2018051700;        // Requires this Moodle version 3.5
 $plugin->component = 'block_mycoursesltc'; // Full name of the plugin (used for diagnostics).
-$plugin->release = '3.9.0';
+$plugin->release = '3.10.0';
 $plugin->maturity = MATURITY_STABLE;

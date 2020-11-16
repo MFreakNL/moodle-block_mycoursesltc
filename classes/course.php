@@ -19,14 +19,16 @@
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 29/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
 
 namespace block_mycoursesltc;
+defined('MOODLE_INTERNAL') || die;
+
 require_once($CFG->libdir . '/gradelib.php');
-require_once $CFG->libdir . '/completionlib.php';
+require_once($CFG->libdir . '/completionlib.php');
 
 use completion_completion;
 use completion_info;
@@ -35,14 +37,12 @@ use grade_grade;
 use grade_item;
 use lang_string;
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Class course
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 29/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  */
@@ -95,15 +95,14 @@ class course {
         }
 
         $gradeitem = reset($gradeitem);
-        $grade_grades = grade_grade::fetch_users_grades($gradeitem, [$USER->id], true);
+        $gradegrades = grade_grade::fetch_users_grades($gradeitem, [$USER->id], true);
+        $grade = reset($gradegrades);
 
-        $grade_grade = reset($grade_grades);
-
-        if (empty($grade_grade->finalgrade)) {
+        if (empty($grade->finalgrade)) {
             return '';
         }
 
-        return grade_format_gradevalue($grade_grade->finalgrade, $gradeitem, true,
+        return grade_format_gradevalue($grade->finalgrade, $gradeitem, true,
             GRADE_DISPLAY_TYPE_REAL, 2);
     }
 
@@ -163,7 +162,7 @@ class course {
     public function image() : string {
         global $CFG;
 
-        // @TODO caching
+        // Todo Caching.
         $fs = get_file_storage();
         $context = \context_course::instance($this->course->id);
         $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'timecreated');
@@ -173,8 +172,9 @@ class course {
                 continue;
             }
 
-            return file_encode_url("$CFG->wwwroot/pluginfile.php", '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
-                $file->get_filearea() . $file->get_filepath() . $file->get_filename(), false);
+            return file_encode_url("$CFG->wwwroot/pluginfile.php",
+                '/' . $file->get_contextid() . '/' . $file->get_component() . '/' . $file->get_filearea() .
+                $file->get_filepath() . $file->get_filename(), false);
         }
 
         return helper::get_default_image();

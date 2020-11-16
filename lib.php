@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- *
+ * Lib functions
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @package   moodle-block_mycoursesltc
+ * @package   block_mycoursesltc
  * @copyright 29/10/2019 Mfreak.nl | LdesignMedia.nl - Luuk Verhoeven
  * @author    Luuk Verhoeven
  **/
@@ -27,15 +27,17 @@
 /**
  * Serve the file.
  *
- * @param        $course
- * @param        $cm
- * @param        $context
- * @param string $filearea
- * @param array  $args
- * @param bool   $forcedownload
- * @param        $sendfileoptions
+ * @param stdClass      $course
+ * @param stdClass      $cm
+ * @param context_block $context
+ * @param string        $filearea
+ * @param array         $args
+ * @param bool          $forcedownload
+ * @param bool          $sendfileoptions
  *
- * @return bool may terminate if file not found or do not die not specified
+ * @return void may terminate if file not found or do not die not specified
+ * @throws coding_exception
+ * @throws moodle_exception
  */
 function block_mycoursesltc_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, $sendfileoptions) {
     global $CFG;
