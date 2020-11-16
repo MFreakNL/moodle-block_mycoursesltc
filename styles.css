@@ -60,6 +60,10 @@
     color: #fff;
 }
 
+.block_mycoursesltc a.dropdown-item:before {
+    content: "";
+}
+
 .block_mycoursesltc footer {
     text-align: right;
     border-top: 1px solid #642995;

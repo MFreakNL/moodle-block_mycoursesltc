@@ -49,10 +49,6 @@ function block_mycoursesltc_pluginfile($course, $cm, $context, $filearea, $args,
     $fs = get_file_storage();
     $itemid = $args[0];
 
-    if ($filearea !== 'defaultimage' || empty($course) || empty($cm)) {
-        send_file_not_found();
-    }
-
     // Get the file.
     $files = $fs->get_area_files($context->id, 'block_mycoursesltc', 'defaultimage', 1);
 
