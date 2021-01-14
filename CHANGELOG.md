@@ -30,6 +30,14 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+
+## Version (3.10.1) - 2021-01-14
+
+##### Added 
+- Setting for custom image hidden course.
+- Setting for custom image expired enrollment.
+- Hide enter course if user enrollment is expired.
+
 ## Version (3.10) - 2020-11-16
 
 ##### Updated
