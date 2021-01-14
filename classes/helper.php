@@ -311,4 +311,53 @@ final class helper {
         return (int)$default;
     }
 
+    /**
+     * @param string $setting
+     *
+     * @return string
+     * @throws \dml_exception
+     */
+    protected static function get_settings_image(string $setting) : string {
+        $file = get_config('block_mycoursesltc', $setting);
+
+        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycoursesltc', 'block_mycoursesltc_' . $setting, 0,
+            theme_get_revision(), $file);
+    }
+
+    /**
+     * @return string
+     * @throws \dml_exception
+     */
+    public static function course_expired_image() : string {
+        return self::get_settings_image('course_expired_image');
+    }
+
+    /**
+     * @return bool
+     * @throws \dml_exception
+     */
+    public static function has_course_expired_image() : bool {
+        $file = get_config('block_mycoursesltc', 'course_hidden_image');
+
+        return !empty($file);
+    }
+
+    /**
+     * @return string
+     * @throws \dml_exception
+     */
+    public static function course_hidden_image() : string {
+        return self::get_settings_image('course_hidden_image');
+    }
+
+    /**
+     * @return bool
+     * @throws \dml_exception
+     */
+    public static function has_course_hidden_image() : bool {
+        $file = get_config('block_mycoursesltc', 'course_expired_image');
+
+        return !empty($file);
+    }
+
 }

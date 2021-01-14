@@ -50,7 +50,7 @@ function block_mycoursesltc_pluginfile($course, $cm, $context, $filearea, $args,
     $itemid = $args[0];
 
     // Get the file.
-    $files = $fs->get_area_files($context->id, 'block_mycoursesltc', 'defaultimage', 1);
+    $files = $fs->get_area_files($context->id, 'block_mycoursesltc', $filearea, $itemid);
 
     if (!empty($files)) {
 

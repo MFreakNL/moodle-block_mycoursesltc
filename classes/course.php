@@ -165,6 +165,15 @@ class course {
         // Todo Caching.
         $fs = get_file_storage();
         $context = \context_course::instance($this->course->id);
+
+        if($this->enrolment_is_ended() && helper::has_course_expired_image()){
+            return helper::course_expired_image();
+        }
+
+        if($this->course_is_hidden() && helper::has_course_hidden_image()){
+            return helper::course_hidden_image();
+        }
+
         $files = $fs->get_area_files($context->id, 'course', 'overviewfiles', false, 'timecreated');
         foreach ($files as $file) {
 
@@ -261,6 +270,13 @@ class course {
         }
 
         return false;
+    }
+
+    /**
+     * @return bool
+     */
+    private function course_is_hidden() : bool {
+        return empty($this->course->visible);
     }
 
 }
