@@ -39,10 +39,12 @@
                 <span class="status-text">{{progress_text}}</span>
             </div>
         </section>
-        <footer>
-            <a href="{{courseurl}}">{{# str}} btn:start_course, block_mycoursesltc {{/ str}}
-                <i class="fa fa-arrow-circle-right"></i>
-            </a>
-        </footer>
+        {{^enrolment_is_ended}}
+            <footer>
+                <a href="{{courseurl}}">{{# str}} btn:start_course, block_mycoursesltc {{/ str}}
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </footer>
+        {{/enrolment_is_ended}}
     </div>
 </div>

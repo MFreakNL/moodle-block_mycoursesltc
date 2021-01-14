@@ -42,4 +42,19 @@ if ($ADMIN->fulltree) {
         get_string('settings:courselimit_desc', 'block_mycoursesltc'),
         6, $choices));
 
+    $settings->add(new admin_setting_configstoredfile('block_mycoursesltc/course_hidden_image',
+        get_string('settings:course_hidden_image', 'block_mycoursesltc'),
+        get_string('settings:course_hidden_image_desc', 'block_mycoursesltc'),
+        'block_mycoursesltc_course_hidden_image', 0, [
+            'maxfiles' => 1,
+            'accepted_types' => ['.jpg', '.png'],
+        ]));
+
+    $settings->add(new admin_setting_configstoredfile('block_mycoursesltc/course_expired_image',
+        get_string('settings:course_expired_image', 'block_mycoursesltc'),
+        get_string('settings:course_expired_image_desc', 'block_mycoursesltc'),
+        'block_mycoursesltc_course_expired_image', 0, [
+            'maxfiles' => 1,
+            'accepted_types' => ['.jpg', '.png'],
+        ]));
 }

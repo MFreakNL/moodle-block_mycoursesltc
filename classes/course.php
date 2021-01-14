@@ -252,4 +252,15 @@ class course {
         return $this->completion;
     }
 
+    /**
+     * @return bool
+     */
+    public function enrolment_is_ended() : bool {
+        if ($this->course->enrolment_end === false) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
