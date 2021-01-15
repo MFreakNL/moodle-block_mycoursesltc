@@ -38,6 +38,10 @@ $string['settings:defaultimage'] = 'Default image';
 $string['settings:defaultimagedesc'] = 'The default course images';
 $string['settings:courselimit'] = 'Course limit';
 $string['settings:courselimit_desc'] = 'The maximum number of enrolled courses shown';
+$string['settings:course_expired_image'] = 'Expired image';
+$string['settings:course_expired_image_desc'] = 'If enrollment is expired show this image';
+$string['settings:course_hidden_image'] = 'Hidden course image';
+$string['settings:course_expired_image_desc'] = 'If course is hidden show this image';
 
 // Privacy.
 $string['privacy:metadata'] = 'The atto_clear plugin does not store any personal data.';
