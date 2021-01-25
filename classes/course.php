@@ -264,6 +264,21 @@ class course {
     /**
      * @return bool
      */
+    public function hide_enter_course() : bool {
+        if ($this->course->enrolment_end === false) {
+            return true;
+        }
+
+        if ($this->course_is_hidden() === true) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
     public function enrolment_is_ended() : bool {
         if ($this->course->enrolment_end === false) {
             return true;
