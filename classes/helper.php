@@ -320,8 +320,8 @@ final class helper {
     protected static function get_settings_image(string $setting) : string {
         $file = get_config('block_mycoursesltc', $setting);
 
-        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycoursesltc', 'block_mycoursesltc_' . $setting, 0,
-            theme_get_revision(), $file);
+        return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycoursesltc',
+            'block_mycoursesltc_' . $setting, 0,   '', $file);
     }
 
     /**
