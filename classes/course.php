@@ -73,7 +73,7 @@ class course {
      * @return string
      */
     public function date_started() : string {
-        return date('d-m-Y', $this->course->enrolment_start);
+        return !empty($this->course->enrolment_start) ? date('d-m-Y', $this->course->enrolment_start) : '';
     }
 
     /**
@@ -166,11 +166,11 @@ class course {
         $fs = get_file_storage();
         $context = \context_course::instance($this->course->id);
 
-        if($this->enrolment_is_ended() && helper::has_course_expired_image()){
+        if ($this->enrolment_is_ended() && helper::has_course_expired_image()) {
             return helper::course_expired_image();
         }
 
-        if($this->course_is_hidden() && helper::has_course_hidden_image()){
+        if ($this->course_is_hidden() && helper::has_course_hidden_image()) {
             return helper::course_hidden_image();
         }
 
@@ -265,7 +265,7 @@ class course {
      * @return bool
      */
     public function hide_enter_course() : bool {
-        if ($this->course->enrolment_end === false) {
+        if ($this->course->enrolment_active === false) {
             return true;
         }
 
@@ -280,7 +280,7 @@ class course {
      * @return bool
      */
     public function enrolment_is_ended() : bool {
-        if ($this->course->enrolment_end === false) {
+        if ($this->course->enrolment_active === false) {
             return true;
         }
 

@@ -148,8 +148,10 @@ final class helper {
         foreach ($courses as $id => $course) {
             $enrolmentinfo = self::enrol_get_enrolment_info($id, $userid);
 
-            $course->enrolment_start = $enrolmentinfo['startdate'];
-            $course->enrolment_end = $enrolmentinfo['enddate'];
+            $course->enrolment_active = is_enrolled(\context_course::instance($course->id) , $userid , '' , true);
+            $course->enrolment_start = $enrolmentinfo['startdate'] ?? false;
+            $course->enrolment_end = $enrolmentinfo['enddate'] ?? false;
+
             $courses[$id] = $course;
         }
 
@@ -174,18 +176,20 @@ final class helper {
               FROM {user_enrolments} ue
               JOIN {enrol} e ON (e.id = ue.enrolid AND e.courseid = :courseid)
               JOIN {user} u ON u.id = ue.userid
-             WHERE ue.userid = :userid AND ue.status = :active AND e.status = :enabled AND u.deleted = 0";
+             WHERE ue.userid = :userid AND e.status = :enabled AND u.deleted = 0";
         $params = [
             'enabled' => ENROL_INSTANCE_ENABLED,
-            'active' => ENROL_USER_ACTIVE,
             'userid' => $userid,
             'courseid' => $courseid,
         ];
 
         if (!$enrolments = $DB->get_records_sql($sql, $params)) {
-            return false;
+            return [
+                'enddate' => false,
+                'startdate' => false,
+            ];
         }
-
+        // @TODO rewrite this logic.
         $changes = [];
         $started = 0;
         foreach ($enrolments as $ue) {
@@ -208,7 +212,9 @@ final class helper {
 
             if ($end === 0) {
                 continue;
-            } else if (isset($changes[$end])) {
+            }
+
+            if (isset($changes[$end])) {
                 $changes[$end] = $changes[$end] - 1;
             } else {
                 $changes[$end] = -1;
@@ -232,7 +238,7 @@ final class helper {
                         // No enrolment active.
                         return [
                             'enddate' => false,
-                            'startdate' => false,
+                            'startdate' => $started,
                         ];
                     }
                 }
@@ -256,9 +262,8 @@ final class helper {
 
         return [
             'enddate' => false,
-            'startdate' => false,
+            'startdate' => $started,
         ];
-
     }
 
     /**
@@ -321,7 +326,7 @@ final class helper {
         $file = get_config('block_mycoursesltc', $setting);
 
         return moodle_url::make_pluginfile_url(context_system::instance()->id, 'block_mycoursesltc',
-            'block_mycoursesltc_' . $setting, 0,   '', $file);
+            'block_mycoursesltc_' . $setting, 0, '', $file);
     }
 
     /**
