@@ -244,8 +244,7 @@ class course {
             return $this->completion;
         }
 
-        $percentage = progress::get_course_progress_percentage($this->course);
-
+        $percentage = helper::get_course_progress_percentage($this->course);
         $params = [
             'userid' => $USER->id,
             'course' => $this->get_id(),
@@ -257,7 +256,6 @@ class course {
         $return['progress'] = empty($percentage) ? 0.00 : floor($percentage);
 
         $this->completion = (object)$return;
-
         return $this->completion;
     }
 
