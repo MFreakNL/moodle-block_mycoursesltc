@@ -44,7 +44,7 @@ $string['settings:course_hidden_image'] = 'Hidden course image';
 $string['settings:course_hidden_image_desc'] = 'If course is hidden show this image';
 
 // Privacy.
-$string['privacy:metadata'] = 'The atto_clear plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The mycoursesltc plugin does not store any personal data.';
 
 // Text.
 $string['text:startdate'] = 'Startdate:';
